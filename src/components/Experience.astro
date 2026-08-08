@@ -1,0 +1,74 @@
+---
+const jobs = [
+  {
+    num: '01',
+    role: 'Store Crew Boy',
+    company: 'PT Indomarco Prismatama, Yogyakarta',
+    period: 'Feb 2025 – Feb 2026',
+    points: [
+      'Mengelola kerapihan display (facing, kategori, label harga).',
+      'Memastikan restock dari gudang ke rak berjalan lancar.',
+      'Menangani penerimaan barang: bongkar muat, cek jumlah & kondisi.',
+      'Mengoperasikan kasir sesuai SOP — scan, pembayaran, packing.',
+      'Menerapkan FIFO/FEFO dan menangani proses retur.'
+    ]
+  },
+  {
+    num: '02',
+    role: 'Admin',
+    company: 'BMC Motor, Yogyakarta',
+    period: 'Nov 2024 – Jan 2025',
+    points: [
+      'Menjaga dokumen administrasi tetap lengkap dan terorganisir.',
+      'Memberikan info harga, durasi servis, dan ketersediaan sparepart.',
+      'Membuat dan mengarsipkan invoice/faktur.',
+      'Mencatat transaksi harian, mingguan, dan bulanan.'
+    ]
+  },
+  {
+    num: '03',
+    role: 'Operator Produksi',
+    company: 'PT Mitra Metal Perkasa, Karawang',
+    period: 'Jan 2023 – Agu 2024',
+    points: [
+      'Menjalankan proses kerja sesuai arahan briefing dan SOP.',
+      'Menjaga proses produksi sesuai standar toleransi.',
+      'Menjaga lingkungan kerja tetap rapi dan bersih.',
+      'Menyusun laporan kerja tepat waktu.'
+    ]
+  },
+  {
+    num: '04',
+    role: 'IT Support Internship',
+    company: 'Restu Computer, Magelang',
+    period: 'Nov 2021 – Feb 2022',
+    points: [
+      'Membongkar & memasang kembali komponen laptop/PC setelah perbaikan.',
+      'Upgrade hardware untuk meningkatkan kapasitas komponen.',
+      'Instalasi ulang OS dan software.'
+    ]
+  }
+];
+---
+<section class="section" id="pengalaman">
+  <div class="section-eyebrow">Riwayat Kerja</div>
+  <h2>Pengalaman</h2>
+
+  {jobs.map((job) => (
+    <div class="exp-item">
+      <div class="exp-num">{job.num}</div>
+      <div>
+        <div class="exp-top">
+          <div>
+            <div class="exp-role">{job.role}</div>
+            <div class="exp-company">{job.company}</div>
+          </div>
+          <div class="exp-period">{job.period}</div>
+        </div>
+        <ul class="exp-list">
+          {job.points.map((pt) => <li>{pt}</li>)}
+        </ul>
+      </div>
+    </div>
+  ))}
+</section>

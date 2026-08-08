@@ -1,0 +1,20 @@
+---
+const skills = [
+  { title: 'Operasional Toko', desc: 'Kasir & POS, receiving barang, display & planogram rak.' },
+  { title: 'Produksi', desc: 'Mesin stamping press (manual & otomatis), kontrol kualitas sesuai toleransi.' },
+  { title: 'Administrasi', desc: 'Microsoft Word, input & pengelolaan data servis kendaraan.' },
+  { title: 'Teknis', desc: 'Bongkar-pasang & upgrade hardware, instalasi ulang OS & software.' }
+];
+---
+<section class="section" id="skill">
+  <div class="section-eyebrow">Kemampuan</div>
+  <h2>Skill</h2>
+  <div class="skill-grid">
+    {skills.map((s) => (
+      <div class="skill-card">
+        <h3>{s.title}</h3>
+        <p>{s.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
