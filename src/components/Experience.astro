@@ -1,7 +1,7 @@
 ---
 const jobs = [
   {
-    num: '01',
+    num: '( 01 )',
     role: 'Store Crew Boy',
     company: 'PT Indomarco Prismatama, Yogyakarta',
     period: 'Feb 2025 – Feb 2026',
@@ -14,7 +14,7 @@ const jobs = [
     ]
   },
   {
-    num: '02',
+    num: '( 02 )',
     role: 'Admin',
     company: 'BMC Motor, Yogyakarta',
     period: 'Nov 2024 – Jan 2025',
@@ -26,7 +26,7 @@ const jobs = [
     ]
   },
   {
-    num: '03',
+    num: '( 03 )',
     role: 'Operator Produksi',
     company: 'PT Mitra Metal Perkasa, Karawang',
     period: 'Jan 2023 – Agu 2024',
@@ -38,7 +38,7 @@ const jobs = [
     ]
   },
   {
-    num: '04',
+    num: '( 04 )',
     role: 'IT Support Internship',
     company: 'Restu Computer, Magelang',
     period: 'Nov 2021 – Feb 2022',
@@ -51,24 +51,24 @@ const jobs = [
 ];
 ---
 <section class="section" id="pengalaman">
-  <div class="section-eyebrow">Riwayat Kerja</div>
-  <h2>Pengalaman</h2>
+  <div class="section-head">
+    <h2>Riwayat Kerja</h2>
+    <span class="see-all mono">4 posisi</span>
+  </div>
 
   {jobs.map((job) => (
     <div class="exp-item">
-      <div class="exp-num">{job.num}</div>
-      <div>
-        <div class="exp-top">
-          <div>
-            <div class="exp-role">{job.role}</div>
-            <div class="exp-company">{job.company}</div>
-          </div>
-          <div class="exp-period">{job.period}</div>
+      <div class="exp-top">
+        <div>
+          <span class="exp-num">{job.num}</span>
+          <div class="exp-role">{job.role}</div>
+          <div class="exp-company">{job.company}</div>
         </div>
-        <ul class="exp-list">
-          {job.points.map((pt) => <li>{pt}</li>)}
-        </ul>
+        <div class="exp-period">{job.period}</div>
       </div>
+      <ul class="exp-list">
+        {job.points.map((pt) => <li>{pt}</li>)}
+      </ul>
     </div>
   ))}
 </section>
