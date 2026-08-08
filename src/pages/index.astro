@@ -1,23 +1,238 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Experience from '../components/Experience.astro';
-import Skills from '../components/Skills.astro';
-import Education from '../components/Education.astro';
-import About from '../components/About.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+// src/pages/index.astro
+import "../styles/global.css";
+
+const experience = [
+  {
+    role: "Store Crew Boy",
+    company: "PT Indomarco Prismatama (Indomaret) — Yogyakarta",
+    date: "Feb 2025 – Feb 2026",
+    color: "#539df5",
+    points: [
+      "Kerapihan display, label harga & penataan kategori sesuai planogram",
+      "Operasional kasir sesuai SOP: scan, pembayaran, packing",
+      "Penerapan FIFO/FEFO & penerimaan barang gudang",
+    ],
+  },
+  {
+    role: "Admin",
+    company: "BMC Motor — Yogyakarta",
+    date: "Nov 2024 – Jan 2025",
+    color: "#ffa42b",
+    points: [
+      "Dokumen administrasi lengkap & terorganisir",
+      "Pembuatan & pengarsipan invoice/faktur",
+      "Pencatatan transaksi harian, mingguan, bulanan",
+    ],
+  },
+  {
+    role: "Operator Produksi",
+    company: "PT Mitra Metal Perkasa — Karawang",
+    date: "Jan 2023 – Agu 2024",
+    color: "#f3727f",
+    points: [
+      "Pengoperasian mesin stamping press manual & otomatis",
+      "Kontrol kualitas hasil produksi sesuai toleransi",
+      "Pelaporan kerja & kebersihan area produksi",
+    ],
+  },
+  {
+    role: "IT Support Internship",
+    company: "Restu Computer — Magelang",
+    date: "Nov 2021 – Feb 2022",
+    color: "#1ed760",
+    points: [
+      "Bongkar-pasang komponen laptop & PC",
+      "Upgrade hardware & instalasi ulang OS/software",
+    ],
+  },
+];
+
+const skills = [
+  { icon: "🛒", title: "Ritel & Kasir", desc: "POS, scan barcode, void/retur, display & planogram." },
+  { icon: "🗂", title: "Administrasi", desc: "Invoice, input data servis, pencatatan transaksi." },
+  { icon: "⚙", title: "Produksi & QC", desc: "Stamping press, kontrol kualitas, kepatuhan SOP." },
+  { icon: "💻", title: "Web & Teknis", desc: "HTML5, CSS3, JavaScript, Firebase, instalasi OS." },
+];
 ---
-<Layout>
-  <Nav />
-  <main class="wrap">
-    <Hero />
-    <Experience />
-    <Skills />
-    <Education />
-    <About />
-    <Contact />
-    <Footer />
-  </main>
-</Layout>
+
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bayu Andika — Profil Kerja</title>
+  <meta name="description" content="Portofolio kerja Bayu Andika — pengalaman di ritel, administrasi, produksi, dan IT support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="wrap navrow">
+      <div class="brand"><span class="dot"></span>Bayu Andika</div>
+      <div class="navpills">
+        <a class="active" href="#home">Beranda</a>
+        <a href="#project">Proyek</a>
+        <a href="#experience">Pengalaman</a>
+      </div>
+      <a class="cta-pill uc" href="mailto:bayuandk4@gmail.com">Hubungi</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <section class="hero" id="home">
+      <div class="hero-card reveal">
+        <div class="hero-label uc">Profil Publik · Magelang, Indonesia</div>
+        <div class="hero-name">Bayu Andika</div>
+        <p class="hero-role">
+          Tenaga kerja serbaguna dengan rekam jejak di operasional toko, administrasi,
+          produksi, dan dukungan teknis IT — disiplin SOP, cepat beradaptasi.
+        </p>
+        <div class="hero-stats">
+          <span><b>4+</b> Industri</span>
+          <span><b>3 Thn</b> Pengalaman</span>
+          <span><b>1</b> Proyek Pribadi</span>
+        </div>
+        <div class="hero-actions">
+          <a class="play-btn" href="#experience" aria-label="Lihat pengalaman">▶</a>
+          <a class="outline-pill uc" href="mailto:bayuandk4@gmail.com">Hubungi Saya</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-head reveal">
+        <h2>Baru Bekerja Di</h2>
+        <span class="uc">Diurutkan Terbaru</span>
+      </div>
+      <div class="reveal">
+        {experience.map((job, i) => (
+          <>
+            <div class="track-row">
+              <div class="track-num">{i + 1}</div>
+              <div class="track-thumb" style={`background:linear-gradient(140deg,${job.color},#121212);`}></div>
+              <div>
+                <div class="track-title">{job.role}</div>
+                <div class="track-sub">{job.company}</div>
+              </div>
+              <div class="track-date">{job.date}</div>
+            </div>
+            <div class="track-detail">
+              <ul>
+                {job.points.map((p) => <li>{p}</li>)}
+              </ul>
+            </div>
+          </>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head reveal">
+        <h2>Dibuat Untuk Perusahaan Anda</h2>
+        <span class="uc">Keahlian</span>
+      </div>
+      <div class="card-grid reveal">
+        {skills.map((s) => (
+          <div class="g-card">
+            <div class="g-icon">{s.icon}</div>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="project">
+      <div class="sec-head reveal">
+        <h2>Rilisan Unggulan</h2>
+        <span class="uc">Proyek Pribadi</span>
+      </div>
+      <div class="album-card reveal">
+        <div class="album-art"></div>
+        <div>
+          <div class="album-kicker uc">Personal Project · PWA</div>
+          <div class="album-title">V-Forge</div>
+          <div class="album-sub">Web-Based Video Editor</div>
+          <p class="album-desc">
+            Aplikasi video editor berbasis web (PWA) dibangun dari nol memakai HTML5, CSS3,
+            dan JavaScript murni tanpa framework, dengan Firebase untuk autentikasi &amp;
+            penyimpanan data proyek.
+          </p>
+          <p class="album-desc">
+            Import &amp; preview video, edit lewat workspace bergaya editor profesional,
+            ekspor lewat Canvas/Web Audio/MediaRecorder — lengkap fitur premium 4K, 120 FPS,
+            dan Hi-Res Audio.
+          </p>
+          <div class="genre-tags">
+            <span class="genre-tag">HTML5</span>
+            <span class="genre-tag">CSS3</span>
+            <span class="genre-tag">JavaScript</span>
+            <span class="genre-tag">Firebase</span>
+            <span class="genre-tag">PWA</span>
+            <span class="genre-tag">Service Worker</span>
+          </div>
+          <div class="album-actions">
+            <a class="play-btn" style="width:48px;height:48px;font-size:16px;" href="https://bayz44.github.io/V-Forge/" target="_blank" rel="noopener" aria-label="Coba demo">▶</a>
+            <a class="outline-pill uc" href="https://github.com/bayz-dik/V-Forge" target="_blank" rel="noopener">Lihat Repository</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sec-head reveal">
+        <h2>Pendidikan</h2>
+        <span class="uc">Latar Belakang</span>
+      </div>
+      <div class="edu-card reveal">
+        <div>
+          <b>SMK Muhammadiyah 1 Muntilan</b>
+          <div class="sub">Rekayasa Perangkat Lunak — Magelang</div>
+        </div>
+        <div class="sub">Jul 2019 – Jun 2022</div>
+      </div>
+      <div class="spacer-end"></div>
+    </section>
+
+  </div>
+
+  <div class="now-playing">
+    <div class="np-inner">
+      <div class="np-left">
+        <div class="np-avatar">BA</div>
+        <div class="np-text">
+          <b>Bayu Andika</b>
+          <span>Terbuka untuk kerja · Magelang</span>
+        </div>
+      </div>
+      <div class="np-center">
+        <a class="np-mini-play" href="mailto:bayuandk4@gmail.com" aria-label="Hubungi via email">▶</a>
+        <div class="np-bar"></div>
+      </div>
+      <div class="np-right">
+        <a class="np-icon" href="tel:+6287881820662" aria-label="Telepon">☎</a>
+        <a class="np-icon" href="https://linkedin.com/in/bayu-andika2003/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a class="np-icon" href="https://github.com/bayz-dik" target="_blank" rel="noopener" aria-label="GitHub">⌥</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
